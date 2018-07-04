@@ -1,0 +1,34 @@
+storage:
+ value: default
+ wizard:
+   name: "Storage Configuration"
+   kind: cluster_storage
+
+python_version:
+  value: "2"
+  wizard:
+    name: "Python version"
+    kind: select
+    options:
+    - "2"
+    - "3"
+
+jupyter:
+  value: true
+  wizard:
+    name: Install Jupyter
+    kind: boolean
+
+src:
+  value: https://github.com/kuberlab/tensorflow-examples
+  wizard:
+    name: "Source Code"
+    kind: git
+
+dataset:
+ value: ''
+ version: ''
+ workspace: ''
+ wizard:
+   name: "Dataset configuration"
+   kind: dataset
