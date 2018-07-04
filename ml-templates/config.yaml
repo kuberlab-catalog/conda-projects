@@ -6,6 +6,7 @@ spec:
   default_mount_path: "/notebooks"
   packages:
     - names:
+      - pip
       {{- range $i, $value := .packages }}
       - "{{ $value }}"
       {{- end }}
