@@ -99,7 +99,6 @@ spec:
   - isLibDir: true
     name: lib
     clusterStorage: {{ .storage.value }}
-    mountPath: /notebooks/lib/{{ .env.value }}
   - isLibDir: false
     name: data
     {{- if .dataset.value }}
