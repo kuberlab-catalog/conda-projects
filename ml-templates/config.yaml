@@ -45,7 +45,7 @@ spec:
       workdir: "$SRC_DIR"
       env:
       - name: CONDA_ENV
-        value: /notebooks/lib/{{ .env.value }}
+        value: /notebooks/lib
       resources:
         accelerators:
           gpu: 0
@@ -72,7 +72,7 @@ spec:
     {{- end }}
     env:
     - name: CONDA_ENV
-      value: /notebooks/lib/{{ .env.value }}
+      value: /notebooks/lib
     resources:
       requests:
         cpu: 100m
@@ -99,6 +99,7 @@ spec:
   - isLibDir: true
     name: lib
     clusterStorage: {{ .storage.value }}
+    subPath: "/{{ .env.value }}"
   - isLibDir: false
     name: data
     {{- if .dataset.value }}
