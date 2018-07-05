@@ -22,6 +22,12 @@ env:
     options:
     - "kuberlab"
 
+global_env:
+  value: true
+  wizard:
+    name: "Use global environment"
+    kind: boolean
+
 jupyter:
   value: true
   wizard:

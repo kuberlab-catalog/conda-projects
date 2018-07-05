@@ -99,7 +99,11 @@ spec:
   - isLibDir: true
     name: lib
     clusterStorage: {{ .storage.value }}
+    {{- if .global_env.value }}
     subPath: "/{{ .env.value }}"
+    {{- else }}
+    subPath: "{{ .env.value }}"
+    {{- end }}
   - isLibDir: false
     name: data
     {{- if .dataset.value }}
