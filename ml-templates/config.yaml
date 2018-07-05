@@ -6,6 +6,12 @@ spec:
   default_mount_path: "/notebooks"
   packages:
     - names:
+      {{- if eq .python_version.value "3" }}
+      - python=3.6
+      {{- end }}
+      {{- if eq .python_version.value "2" }}
+      - python=2.7
+      {{- end }}
       - pip
       {{- range $i, $value := .packages }}
       - "{{ $value }}"
