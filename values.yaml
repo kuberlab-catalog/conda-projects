@@ -13,10 +13,25 @@ python_version:
     - "2"
     - "3"
 
+env:
+  value: "kuberlab"
+  wizard:
+    name: "Conda environment"
+    kind: select
+    dynamic: true
+    options:
+    - "kuberlab"
+
 jupyter:
   value: true
   wizard:
     name: Install Jupyter
+    kind: boolean
+
+jupyter_contrib_nbextensions:
+  value: false
+  wizard:
+    name: Install Jupyter Extensions
     kind: boolean
 
 src:

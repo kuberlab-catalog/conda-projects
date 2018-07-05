@@ -12,6 +12,13 @@ spec:
       {{- if eq .python_version.value "2" }}
       - python=2.7
       {{- end }}
+      {{- if .jupyter.value }}
+      - jupyter
+      {{- end }}
+      {{- if .jupyter_contrib_nbextensions.value }}
+      - conda-forge::jupyter_contrib_nbextensions
+      - conda-forge::jupyter_nbextensions_configurator
+      {{- end }}
       - pip
       {{- range $i, $value := .packages }}
       - "{{ $value }}"
@@ -36,6 +43,9 @@ spec:
       {{- end }}
       command: python hello-tensorflow.py
       workdir: "$SRC_DIR"
+      env:
+      - name: CONDA_ENV
+        value: /notebooks/lib/{{ .env.value }}
       resources:
         accelerators:
           gpu: 0
@@ -60,6 +70,9 @@ spec:
       gpu: "kuberlab/mlbase:gpu-27-base-libs"
       cpu: "kuberlab/mlbase:cpu-27-base-libs"
     {{- end }}
+    env:
+    - name: CONDA_ENV
+      value: /notebooks/lib/{{ .env.value }}
     resources:
       requests:
         cpu: 100m
@@ -86,6 +99,7 @@ spec:
   - isLibDir: true
     name: lib
     clusterStorage: {{ .storage.value }}
+    mountPath: /notebooks/lib/{{ .env.value }}
   - isLibDir: false
     name: data
     {{- if .dataset.value }}
