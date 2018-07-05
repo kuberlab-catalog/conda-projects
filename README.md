@@ -1,13 +1,4 @@
-# TensorFlow
+# Python loves Conda
 
-This is the base TensorFlow project.
+This is the basic env for Python development
 
-Conatains:
-
-- Jupyter for interactive development
-
-- Tensorbard for monitoring training process
-
-- Examples of training tasks
-
-- Examples of distributed training tasks
